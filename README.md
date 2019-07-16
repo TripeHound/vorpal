@@ -5,7 +5,7 @@
 This is essentially a personal-use fork of [dhthree/vorpal](https://github.com/dthree/vorpal). I wanted to add
 both command-line-driven and interactive-prompt facilities to a program I was writing and ended up looking at
 Vorpal. While it did a lot of what I wanted, there were some areas where I wanted it to behave differently
-(see below). I started by modifing the local `node-modules` version, but decided it would be better to push my
+(see below). I started by modifying the local `node-modules` version, but decided it would be better to push my
 changes to a fork of the original.
 
 Feel free to download/clone/fork from this, or even submit pull-requests, but bear in mind:
@@ -19,6 +19,9 @@ Feel free to download/clone/fork from this, or even submit pull-requests, but be
   (let alone any pull-requests!) work under Unix.
 
 * I have not yet looked into getting any automatic tests running.
+
+* All credit for Vorpal goes to dthree and other contributors to the original version; any blame for what I've
+  done to it lies with me.
 
 
 ## My Changes (not yet pushed)
@@ -41,7 +44,7 @@ commands on the command-line (with or without staying interactive) but have not 
 Documentation on the above should follow once I get my local changes into this fork and ready for pushing.
 
 
-## Other Issues
+## Other Points
 
 * At the time of writing, the main Vorpal repository hasn't been updated for around 11 months (August 2018) and
   dhthree has said they are not able to invest much time in maintaining it. _Should_ any new commits be made to
@@ -64,6 +67,9 @@ Documentation on the above should follow once I get my local changes into this f
   seeing a comment either on an issue/pull-request/elsewhere that someone else had created _their_ fork to
   convert Vorpal to TypeScript, but (a) I cannot find the link at the moment, and (b) from what I remember of
   it, they were only something like 58% through the process.
+  
+* I will try to organize things so that creating pull-request of my changes back to the original version of Vorpal
+  should be possible, but creating a PR is not my top priority.
 
 Regards,
 TripeHound.
