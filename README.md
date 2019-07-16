@@ -1,5 +1,80 @@
-# Vorpal
+# TripeHound's fork of Vorpal
 
+## This Fork
+
+This is essentially a personal-use fork of [dhthree/vorpal](https://github.com/dthree/vorpal). I wanted to add
+both command-line-driven and interactive-prompt facilities to a program I was writing and ended up looking at
+Vorpal. While it did a lot of what I wanted, there were some areas where I wanted it to behave differently
+(see below). I started by modifing the local `node-modules` version, but decided it would be better to push my
+changes to a fork of the original.
+
+Feel free to download/clone/fork from this, or even submit pull-requests, but bear in mind:
+
+* This is my first fork of a Git repository, so I may need to feel my way around a bit...
+
+* As this is _primarily_ for personal use, while I won't refuse to look at a pull-request, at this
+  stage, I'll be mostly focusing on what I need to change.
+
+* For the time being, I'll only be working under Windows. I am not yet able to check whether any of my changes
+  (let alone any pull-requests!) work under Unix.
+
+* I have not yet looked into getting any automatic tests running.
+
+
+## My Changes (not yet pushed)
+
+### FileCompleter
+
+Vorpal allows for command/parameter auto-completion. I have added file-name completion. Because I work primarily
+under Windows, I wanted to mimic the Windows command-prompt behaviour whereby repeatedly pressing `TAB` will
+cycle through all filenames that match what has been entered so far. There _is_ an option to use a Unix-like
+file-completion (show all files that match what has been entered, and allow the user to refine their choice) but it
+is not fully working at the moment.
+
+### Ability to Stay Interactive
+
+Vorpal _either_ allows you to specify a command on the command-line, in which case it executes it and exits, _or_
+to enter an interactive prompt where you can give multiple commands. I have added the ability to do both: run a
+command from the command-line then remain interactive. I would also like to provide the ability to enter _multiple_
+commands on the command-line (with or without staying interactive) but have not got to this yet.
+
+Documentation on the above should follow once I get my local changes into this fork and ready for pushing.
+
+
+## Other Issues
+
+* At the time of writing, the main Vorpal repository hasn't been updated for around 11 months (August 2018) and
+  dhthree has said they are not able to invest much time in maintaining it. _Should_ any new commits be made to
+  the original (and I notice them) I will probably try to pull them into my fork (providing they don't totally
+  break my modifications :-) ), but make no promises at this stage.
+
+* The current commit of Vorpal (and therefore of my fork) shows four issues from the `npm audit` command:
+  [https://npmjs.com/advisories/1065] (twice), [https://npmjs.com/advisories/782], and
+  [https://npmjs.com/advisories/577]. As far as I can see, these are caused by out-of-date copies of
+  `loadsh` (one used directly by Vorpal, one indirectly by an old version of `inquirer`). Later versions of
+  both `loadsh` and `inquirer` seem to have fixed all problems, but break "semver" with the rest of Vorpal.
+ 
+  As the problems seem relatively
+  minor (some `lodash` functions fail to prevent you accidentally modifying the prototype of `Object`; something
+  you can deliberately do anyway) I will probably not look to update the affected modules unless or until I get
+  the full testing suite running.
+
+* The original Vorpal has a `2.0-ts` branch where, seemingly, an attempt at conversion to TypeScript was started.
+  However, this doesn't appear to have been updated any more recently than the master branch. I seem to remember
+  seeing a comment either on an issue/pull-request/elsewhere that someone else had created _their_ fork to
+  convert Vorpal to TypeScript, but (a) I cannot find the link at the moment, and (b) from what I remember of
+  it, they were only something like 58% through the process.
+
+Regards,
+TripeHound.
+
+----
+
+## <center>Original README below</center>
+
+----
+
+# Vorpal
 
 [![Build Status](https://travis-ci.org/dthree/vorpal.svg)](https://travis-ci.org/dthree/vorpal/)
 <a href="https://www.npmjs.com/package/vorpal">
